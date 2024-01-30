@@ -10,9 +10,6 @@ services:
       args:
         - ENV=${ENV:-dev}
         - DD_VERSION=${VERSION_TAG:-0.0.1}
-      x-bake:
-        cache-from: type=registory,ref=${CACHE_GAR_PATH:-}/app-back-builder:build-cache
-        cache-to: type=registory,ref=${CACHE_GAR_PATH:-}/app-back-builder:build-cache
   app-back:
     image: app-back
     container_name: app
@@ -23,9 +20,6 @@ services:
       args:
         - ENV=${ENV:-dev}
         - DD_VERSION=${VERSION_TAG:-0.0.1}
-      x-bake:
-        cache-from: type=registory,ref=${CACHE_GAR_PATH:-}/app-back:build-cache
-        cache-to: type=registory,ref=${CACHE_GAR_PATH:-}/app-back:build-cache
   app-front-builder:
     image: app-front-builder
     container_name: app-front-builder
@@ -36,9 +30,6 @@ services:
       args:
         - ENV=${ENV:-dev}
         - DD_VERSION=${VERSION_TAG:-0.0.1}
-      x-bake:
-        cache-from: type=registory,ref=${CACHE_GAR_PATH:-}/app-front-builder:build-cache
-        cache-to: type=registory,ref=${CACHE_GAR_PATH:-}/app-front-builder:build-cache
   app-front:
     image: app-front
     container_name: app
@@ -49,7 +40,4 @@ services:
       args:
         - ENV=${ENV:-dev}
         - DD_VERSION=${VERSION_TAG:-0.0.1}
-      x-bake:
-        cache-from: type=registory,ref=${CACHE_GAR_PATH:-}/app-front:build-cache
-        cache-to: type=registory,ref=${CACHE_GAR_PATH:-}/app-front:build-cache
-  
+     
