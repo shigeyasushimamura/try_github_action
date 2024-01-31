@@ -1,0 +1,5 @@
+# Dockerfileからイメージをビルドする場合、Dockerfileの存在するディレクトリの
+# 中身はtarで固められdaemonに送られる。余分なファイルを.dockerignoreに入れる
+
+node_modules
+.git
